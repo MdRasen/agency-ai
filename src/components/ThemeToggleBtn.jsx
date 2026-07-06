@@ -8,7 +8,7 @@ const ThemeToggleBtn = ({ theme, setTheme }) => {
       "(prefers-color-scheme: dark)",
     ).matches;
     setTheme(theme || (prefersDarkMode ? "dark" : "light"));
-  }, []);
+  });
 
   //    set theme in local storage
   useEffect(() => {
@@ -23,21 +23,12 @@ const ThemeToggleBtn = ({ theme, setTheme }) => {
   return (
     <>
       <button>
-        {theme === "dark" ? (
-          <img
-            onClick={() => setTheme("light")}
-            src={assets.sun_icon}
-            alt="sun_icon"
-            className="size-8.5 p-1.5 border border-gray-500 rounded-full"
-          />
-        ) : (
-          <img
-            onClick={() => setTheme("dark")}
-            src={assets.moon_icon}
-            alt="moon_icon"
-            className="size-8.5 p-1.5 border border-gray-500 rounded-full"
-          />
-        )}
+        <img
+          src={theme === "dark" ? assets.sun_icon : assets.moon_icon}
+          alt={theme === "dark" ? "sun_icon" : "moon_icon"}
+          className="size-8.5 p-1.5 border border-gray-500 rounded-full"
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        />
       </button>
     </>
   );
