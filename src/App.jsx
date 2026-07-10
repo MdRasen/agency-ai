@@ -6,6 +6,7 @@ import Services from "./components/Services";
 import OurWork from "./components/OurWork";
 import Teams from "./components/Teams";
 import ContactUs from "./components/ContactUs";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [theme, setTheme] = useState(
@@ -23,6 +24,7 @@ const App = () => {
       <OurWork />
       <Teams />
       <ContactUs />
+      <Footer theme={theme} />
     </div>
   );
 };
